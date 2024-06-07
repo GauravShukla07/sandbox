@@ -1,7 +1,9 @@
-const express = require("express");
-const path = require("path");
-const hbs = require("hbs");
+import express from "express";
+import path from "path";
+import hbs from "hbs";
+import { fileURLToPath } from "url";
 const app = express();
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.set("view engine", "hbs");
 app.set("views", __dirname + "/src/templates/views");
 hbs.registerPartials(path.join(__dirname, "/src/templates/partials"));

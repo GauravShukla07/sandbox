@@ -1,11 +1,15 @@
-const express = require("express");
-const path = require("path");
-const hbs = require("hbs");
+import express from "express";
+import path from "path";
+import hbs from "hbs";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 app.set("view engine", "hbs");
+// app.set("views", __dirname + "/src/templates/views");
 app.set("views", __dirname + "/src/templates/views");
 app.get("/", (req,res) => {
-res.render("index", {
+res.render("index1", {
     title:"HBS Dynamic Template",
     msg:"This is dynamically fetched content."
 });
